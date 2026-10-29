@@ -1,3 +1,5 @@
+require('dotenv').config({ quiet: true });
+
 const express = require('express');
 const pacientesRoutes = require('./routes/pacientes');
 const authRoutes = require('./routes/auth');
@@ -13,5 +15,5 @@ app.get('/', (req, res) => {
 app.use('/', authRoutes);              // POST /login
 app.use('/pacientes', pacientesRoutes); // CRUD de pacientes
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`));

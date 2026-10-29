@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const SECRET = 'segredo_clinica';
+const SECRET = process.env.JWT_SECRET;
 
 function verificaJWT(req, res, next) {
   const authHeader = req.headers['authorization'];
